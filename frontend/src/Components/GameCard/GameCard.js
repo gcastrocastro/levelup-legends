@@ -3,11 +3,10 @@ import './GameCard.css';
 
 export default function GameCard({game}) {
     return (
-        <Link to={`/game/${game.name}`}>
+        <Link to={`/game/${game.name}`} state={{game: game}}>
             <div className="game-card">
                 <img src={game.background_image} alt={game.name}/>
                 <h2>{game.name}</h2>
-                <p>{game.description}</p>
             </div>
         </Link>
     )
