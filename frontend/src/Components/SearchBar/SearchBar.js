@@ -22,10 +22,10 @@ export default function SearchBar() {
     const errorMessage = 'No Game Found';
 
     return (
-        <>
+        <div className="search-container">
             <div className="search">
                 <form onSubmit={onSubmit}>
-                    <input type="text" value={searchTerm} onChange={handleChange}/>
+                    <input className="input-search" type="text" placeholder="Search for a game!" value={searchTerm} onChange={handleChange}/>
                     <input type="submit" />
                 </form>
             </div>
@@ -38,6 +38,6 @@ export default function SearchBar() {
                     <p>{errorMessage}</p>
                 }
             </div>
-        </>
+        </div>
     )
 }

@@ -1,3 +1,17 @@
+.search-container{
+    background-color: #ffe1a8;
+    height: auto;
+}
+
+.search{
+    padding-top: 15px;
+}
+
+.search form .input-search {
+    margin-left: 15%;
+    width: 60%;
+}
+
 .gamecard-container{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
