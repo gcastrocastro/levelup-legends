@@ -16,7 +16,7 @@ export default function SearchBar() {
         const response = await fetch(`https://api.rawg.io/api/games?key=4dd0a3728ea6403a84545cc73b1ad93b&search=${searchName}`);
         const apiData = await response.json();
         setGameResults(apiData.results);
-        console.log(gameResults)
+        setSearchTerm('')
     }
 
     const errorMessage = 'No Game Found';
