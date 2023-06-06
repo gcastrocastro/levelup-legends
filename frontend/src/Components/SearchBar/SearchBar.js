@@ -19,8 +19,6 @@ export default function SearchBar() {
         setSearchTerm('')
     }
 
-    const errorMessage = 'No Game Found';
-
     return (
         <div className="search-container">
             <div className="search">
@@ -35,7 +33,7 @@ export default function SearchBar() {
                         <GameCard game={game} key={game.id}/>
                     ))
                     :
-                    <p>{errorMessage}</p>
+                    <h2> No Games Found </h2>
                 }
             </div>
         </div>
