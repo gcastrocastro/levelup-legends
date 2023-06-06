@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import GameCard from '../GameCard/GameCard';
+import './SearchBar.css';
 
 export default function SearchBar() {
     const [searchTerm, setSearchTerm] = useState('')
@@ -28,13 +29,15 @@ export default function SearchBar() {
                     <input type="submit" />
                 </form>
             </div>
-            { gameResults ?
-                gameResults.map((game) => (
-                    <GameCard game={game} key={game.id}/>
-                ))
-                :
-                <p>{errorMessage}</p>
-            }
+            <div className="gamecard-container">
+                { gameResults ?
+                    gameResults.map((game) => (
+                        <GameCard game={game} key={game.id}/>
+                    ))
+                    :
+                    <p>{errorMessage}</p>
+                }
+            </div>
         </>
     )
 }

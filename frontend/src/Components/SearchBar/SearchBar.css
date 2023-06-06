@@ -1,0 +1,9 @@
+.gamecard-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: minmax(250px, auto);
+    grid-gap: 1rem;
+    margin-left: 15%;
+    max-width: 1200px;
+    padding: 1rem;
+}
