@@ -25,15 +25,13 @@ const Register = ({ register, isAuthenticated }) => {
         }
     };
 
-    if (isAuthenticated)
-        return <redirect to='/dashboard' />;
-    else if (accountCreated)
+    if (accountCreated)
         return <redirect to='/login' />;
 
     return (
         <div className='container mt-5'>
             <h1>Register for an Account</h1>
-            <p>Create an account with our Session Auth application</p>
+            <p>Create an account to join the LevelUp Legends community!</p>
             <form onSubmit={e => onSubmit(e)}>
                 <CSRFToken />
                 <div className='form-group'>
