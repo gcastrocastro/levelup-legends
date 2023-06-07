@@ -1,11 +1,22 @@
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 import './NavBar.css';
 
 export default function NavBar() {
     return (
         <nav>
-            <Link to="/topgames"> Top Games </Link>
-            <Link to="/search"> Search </Link>
+            <Link exact to='/'> Level Up Legends</Link>
+            <NavLink to="/"> Home </NavLink>
+            {/* { isAuthenticated ?  */}
+                <>
+                    <NavLink to="/topgames"> Top Games </NavLink>
+                    <NavLink to="/search"> Search </NavLink>
+                </>
+                {/* : */}
+                <>
+                    <NavLink to="/register"> Register </NavLink>
+                    <NavLink to="/login"> Login </NavLink>
+                </>
+            {/* } */}
         </nav>
     )
 }
