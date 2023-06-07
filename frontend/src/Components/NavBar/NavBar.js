@@ -4,8 +4,8 @@ import './NavBar.css';
 export default function NavBar() {
     return (
         <nav>
-            <Link exact to='/'> Level Up Legends</Link>
-            <NavLink to="/"> Home </NavLink>
+            {/* <Link exact to='/'> Level Up Legends</Link> */}
+            <NavLink to="/"> Level Up Legends </NavLink>
             {/* { isAuthenticated ?  */}
                 <>
                     <NavLink to="/topgames"> Top Games </NavLink>
