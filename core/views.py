@@ -6,8 +6,26 @@ from rest_framework.response import Response
 from core.models import UserProfile
 from django.views.decorators.csrf import ensure_csrf_cookie, csrf_protect
 from django.utils.decorators import method_decorator
-# from django.contrib.auth import login
-# from django.contrib.auth.forms import UserCreationForm
+from rest_framework import permissions
+from django.contrib import auth
+
+def front(request):
+    context = { }
+    return render(request, "index.html", context)
+
+class CheckAuthenticatedView(APIView):
+    def get(self, request, format=None):
+        user = self.request.user
+
+        try:
+            isAuthenticated = user.is_authenticated
+
+            if isAuthenticated:
+                return Response({ 'isAuthenticated': 'success' })
+            else:
+                return Response({ 'isAuthenticated': 'error' })
+        except:
+            return Response({ 'error': 'Something went wrong when checking authentication status' })
 
 @method_decorator(csrf_protect, name='dispatch')
 class SignUpView(APIView):
@@ -45,22 +63,42 @@ class GetCSRFToken(APIView):
     def get(self, request, format=None):
         return Response({ 'success': 'CSRF cookie set' })
 
-def front(request):
-    context = { }
-    return render(request, "index.html", context)
+@method_decorator(csrf_protect, name='dispatch')
+class LoginView(APIView):
+    permission_classes = (permissions.AllowAny, )
 
-# def signup(request):
-#    error_message = ''
-#    if request.method == 'POST':
-#       form = UserCreationForm(request.POST)
-#       if form.is_valid():
-#          user = form.save()
-#          login(request, user)
-#          return redirect('index')
-#       else:
-#          error_message = 'Invalid Signup -- Try Again'
-#    form = UserCreationForm()
-#    return render(request, 'registration/signup.html', {
-#       'form': form,
-#       'error': error_message
-#    })
+    def post(self, request, format=None):
+        data = self.request.data
+
+        username = data['username']
+        password = data['password']
+
+        try:
+            user = auth.authenticate(username=username, password=password)
+
+            if user is not None:
+                auth.login(request, user)
+                return Response({ 'success': 'User authenticated' })
+            else:
+                return Response({ 'error': 'Error Authenticating' })
+        except:
+            return Response({ 'error': 'Something went wrong when logging in' })
+        
+class LogoutView(APIView):
+    def post(self, request, format=None):
+        try:
+            auth.logout(request)
+            return Response({ 'success': 'Logged Out' })
+        except:
+            return Response({ 'error': 'Something went wrong when logging out' })
+        
+class DeleteAccountView(APIView):
+    def delete(self, request, format=None):
+        user = self.request.user
+
+        try:
+            User.objects.filter(id=user.id).delete()
+
+            return Response({ 'success': 'User deleted successfully' })
+        except:
+            return Response({ 'error': 'Something went wrong when trying to delete user' })
