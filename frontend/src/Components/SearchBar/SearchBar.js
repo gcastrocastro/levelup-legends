@@ -1,10 +1,12 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import GameCard from '../GameCard/GameCard';
 import './SearchBar.css';
 
 export default function SearchBar() {
     const [searchTerm, setSearchTerm] = useState('')
     const [gameResults, setGameResults] = useState([])
+    const [nextPageURL, setNextPageURL] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleChange = (e) => {
         setSearchTerm(e.target.value)
@@ -16,8 +18,34 @@ export default function SearchBar() {
         const response = await fetch(`https://api.rawg.io/api/games?key=4dd0a3728ea6403a84545cc73b1ad93b&search=${searchName}`);
         const apiData = await response.json();
         setGameResults(apiData.results);
+        setNextPageURL(apiData.next);
         setSearchTerm('')
     }
+
+    const loadMore = async () => {
+        if (nextPageURL && !isLoading) {
+            setIsLoading(true);
+            const response = await fetch(nextPageURL);
+            const apiData = await response.json();
+            setGameResults((prevResults) => [...prevResults, ...apiData.results]);
+            setNextPageURL(apiData.next);
+            setIsLoading(false);
+        }
+    };
+
+    const handleScroll = () => {
+        const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
+        if (scrollTop + clientHeight >= scrollHeight - 20) {
+            loadMore();
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [nextPageURL, isLoading]);
 
     return (
         <div className="search-container">
@@ -29,9 +57,12 @@ export default function SearchBar() {
             </div>
             <div className="gamecard-container">
                 { gameResults ?
-                    gameResults.map((game) => (
-                        <GameCard game={game} key={game.id}/>
-                    ))
+                    <>
+                        {gameResults.map((game) => (
+                            <GameCard game={game} key={game.id}/>
+                        ))}
+                        {isLoading && <p>Loading...</p>}
+                    </>
                     :
                     <h2> No Games Found </h2>
                 }
