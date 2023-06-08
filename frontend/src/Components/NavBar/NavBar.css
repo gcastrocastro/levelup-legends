@@ -11,6 +11,10 @@ nav {
     height: 100vh;
 }
 
+nav img {
+    width: 100%;
+}
+
 nav a {
     text-decoration: none;
     color: #fff;

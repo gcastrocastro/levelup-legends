@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 function NavBar({isAuthenticated, logout}) {
     return (
         <nav>
-            <NavLink to="/"> Level Up Legends </NavLink>
+            <NavLink to="/"><img src="https://i.imgur.com/2jhQznM.png"/></NavLink>
             { isAuthenticated ? 
                 <>
                     <NavLink to="/topgames"> Top Games </NavLink>
