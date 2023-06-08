@@ -7,8 +7,16 @@ import SearchBar from '../../Components/SearchBar/SearchBar';
 import GameDetailPage from '../GameDetailPage/GameDetailPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import LoginPage from '../LoginPage/LoginPage';
+import { checkAuthenticated } from '../../actions/auth';
+import {useEffect} from 'react';
+import { connect } from 'react-redux';
 
-function App() {
+function App({ checkAuthenticated }) {
+
+    useEffect(() => {
+      checkAuthenticated();
+  }, []);
+
   return (
     <div className="App">
       <NavBar />
@@ -24,4 +32,4 @@ function App() {
   );
 }
 
-export default App;
+export default connect(null, { checkAuthenticated})(App);
