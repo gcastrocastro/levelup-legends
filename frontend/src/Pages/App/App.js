@@ -7,14 +7,16 @@ import SearchBar from '../../Components/SearchBar/SearchBar';
 import GameDetailPage from '../GameDetailPage/GameDetailPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import LoginPage from '../LoginPage/LoginPage';
-import { checkAuthenticated } from '../../actions/auth';
+import { checkAuthenticated, load_user } from '../../actions/auth';
 import {useEffect} from 'react';
 import { connect } from 'react-redux';
 
-function App({ checkAuthenticated }) {
+function App({ checkAuthenticated, load_user }) {
 
-    useEffect(() => {
-      checkAuthenticated();
+  useEffect(() => {
+    const user = load_user()
+    console.log(user);
+    checkAuthenticated();
   }, []);
 
   return (
@@ -32,4 +34,4 @@ function App({ checkAuthenticated }) {
   );
 }
 
-export default connect(null, { checkAuthenticated})(App);
+export default connect(null, { checkAuthenticated, load_user })(App);

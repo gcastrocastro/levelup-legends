@@ -1,5 +1,3 @@
-import {Link} from 'react-router-dom';
-
 export default function HomePage() {
     return (
         <div className='container'>
@@ -9,8 +7,6 @@ export default function HomePage() {
                     This is a videogame search application with session authentication, built with React and Django.
                 </p>
                 <hr className='my-4' />
-                <p>Click the button below to log in.</p>
-                <Link className='btn btn-primary btn-lg' to='/login'>Login</Link>
             </div>
         </div>
     )
