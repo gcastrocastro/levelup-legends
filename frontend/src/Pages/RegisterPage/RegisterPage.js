@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { redirect, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { register } from '../../actions/auth';
 import CSRFToken from '../../Components/CSRFToken/CSRFToken';
