@@ -3,7 +3,7 @@ import './NavBar.css';
 import { logout } from '../../actions/auth';
 import { connect } from 'react-redux';
 
-function NavBar({isAuthenticated}) {
+function NavBar({isAuthenticated, logout}) {
     return (
         <nav>
             <NavLink to="/"> Level Up Legends </NavLink>
@@ -11,7 +11,7 @@ function NavBar({isAuthenticated}) {
                 <>
                     <NavLink to="/topgames"> Top Games </NavLink>
                     <NavLink to="/search"> Search </NavLink>
-                    <a className='nav-link'onClick={logout} href='#!' > Logout </a>
+                    <a className='nav-link' onClick={logout} href='#!'>Logout</a>
                 </>
                 :
                 <>

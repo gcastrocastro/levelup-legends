@@ -25,7 +25,9 @@ const Register = ({ register, isAuthenticated }) => {
         }
     };
 
-    if (accountCreated)
+    if (isAuthenticated)
+        return <redirect to='/topgames' />;
+    else if (accountCreated)
         return <redirect to='/login' />;
 
     return (
