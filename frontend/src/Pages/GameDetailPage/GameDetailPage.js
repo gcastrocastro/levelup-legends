@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import './GameDetailPage.css';
+import Carousel from '../../Components/Carousel/Carousel';
 
 export default function GameDetailPage() {
     const location = useLocation();
@@ -10,12 +11,7 @@ export default function GameDetailPage() {
     return (
         <div className="detailpage-container">
             <div className="images">
-                <img className="header-image"src={game.background_image} alt={game.name}/>
-                <div className="screenshots">
-                    {game.short_screenshots.slice(1).map(ss => 
-                        <img src={`${ss.image}`}/>
-                    )}
-                </div>
+                <Carousel game={game}/>
             </div>
 
             <h2>{game.name}</h2>
