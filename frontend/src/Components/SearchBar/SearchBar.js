@@ -56,12 +56,12 @@ export default function SearchBar() {
                 </form>
             </div>
             <div className="gamecard-container">
-                { gameResults ?
+                { gameResults.length > 0?
                     <>
                         {gameResults.map((game) => (
                             <GameCard game={game} key={game.id}/>
                         ))}
-                        {isLoading && <p>Loading...</p>}
+                        {isLoading && <h2>Loading...</h2>}
                     </>
                     :
                     <h2> No Games Found </h2>

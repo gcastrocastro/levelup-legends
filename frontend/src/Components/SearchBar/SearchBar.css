@@ -1,6 +1,5 @@
 .search-container{
-    background-color: #ffe1a8;
-    height: auto;
+    background-color: #360607;
 }
 
 .search{
@@ -20,4 +19,12 @@
     margin-left: 15%;
     max-width: 1200px;
     padding: 1rem;
+    background-color: #360607;
+    color: #fff9f6;
+    min-height: 100vh;
+    height: auto;
+}
+
+.gamecard-container a {
+    text-decoration: none;
 }
