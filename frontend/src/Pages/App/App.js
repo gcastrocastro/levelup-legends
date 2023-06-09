@@ -1,27 +1,17 @@
 import './App.css';
 import {Routes, Route} from 'react-router-dom';
 import HomePage from '../HomePage/HomePage';
-import NavBar from '../../Components/NavBar/NavBar';
 import TopGamesPage from '../TopGamesPage/TopGamesPage';
 import SearchBar from '../../Components/SearchBar/SearchBar';
 import GameDetailPage from '../GameDetailPage/GameDetailPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import LoginPage from '../LoginPage/LoginPage';
-import { checkAuthenticated, load_user } from '../../actions/auth';
-import {useEffect} from 'react';
-import { connect } from 'react-redux';
+import Layout from '../Layout/Layout';
 
-function App({ checkAuthenticated, load_user }) {
-
-  useEffect(() => {
-    const user = load_user()
-    console.log(user);
-    checkAuthenticated();
-  }, []);
-
+function App() {
   return (
-    <div className="App">
-      <NavBar />
+    <div className='App'>
+    <Layout>
       <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/register" element={<RegisterPage/>} />
@@ -30,8 +20,9 @@ function App({ checkAuthenticated, load_user }) {
         <Route path="/search" element={<SearchBar/>} />
         <Route path="/game/:name" element={<GameDetailPage/>} />
       </Routes>
+    </Layout>
     </div>
   );
 }
 
-export default connect(null, { checkAuthenticated, load_user })(App);
+export default App;
