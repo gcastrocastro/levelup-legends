@@ -13,14 +13,7 @@ export default function GameDetailPage() {
                 <Carousel game={game}/>
             </div>
             <h2>{game.name}</h2>
-            <div className="video-details">
-                { game.clip && game.clip.clip ? (
-                <video autoPlay muted loop>
-                <source src={game.clip.clip} type="video/mp4" />
-                Your browser does not support the video tag.
-                </video>
-                ) : null} 
-                <div>
+            <div className="game-details">
                     <h3>Genres</h3>
                     <ul>
                         {game.genres.map(genre => (
@@ -33,7 +26,6 @@ export default function GameDetailPage() {
                     {game.platforms.map(platform => (
                             <h6>{platform.platform.name} ({platform.released_at}) </h6>
                         ))}
-                </div>
             </div>
         </div>
     )
