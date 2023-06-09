@@ -5,17 +5,14 @@ from django.contrib.auth.models import User
 from rest_framework.response import Response
 from core.models import UserProfile
 from django.views.decorators.csrf import ensure_csrf_cookie, csrf_protect
-from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from rest_framework import permissions
 from django.contrib import auth
 from .serializers import UserProfileSerializer
 
 def front(request):
-    context = { }
-    return render(request, "index.html", context)
+    return render(request, "index.html")
 
-@method_decorator(csrf_exempt, name='dispatch')
 class GetUserView(APIView):
     def get(self, request, format=None):
         try:
@@ -29,7 +26,6 @@ class GetUserView(APIView):
         except:
             return Response({ 'error': 'Something went wrong when retrieving profile' })
         
-@method_decorator(csrf_exempt, name='dispatch')
 class CheckAuthenticatedView(APIView):
     def get(self, request, format=None):
         user = self.request.user
@@ -44,7 +40,7 @@ class CheckAuthenticatedView(APIView):
         except:
             return Response({ 'error': 'Something went wrong when checking authentication status' })
 
-# @method_decorator(csrf_protect, name='dispatch')
+@method_decorator(csrf_protect, name='dispatch')
 class SignUpView(APIView):
     permission_classes = (permissions.AllowAny, )
     def post(self, request, format=None):
@@ -80,7 +76,7 @@ class GetCSRFToken(APIView):
     def get(self, request, format=None):
         return Response({ 'success': 'CSRF cookie set' })
 
-# @method_decorator(csrf_protect, name='dispatch')
+@method_decorator(csrf_protect, name='dispatch')
 class LoginView(APIView):
     permission_classes = (permissions.AllowAny, )
 
