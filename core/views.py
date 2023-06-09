@@ -96,7 +96,7 @@ class LoginView(APIView):
                 return Response({ 'error': 'Error Authenticating' })
         except:
             return Response({ 'error': 'Something went wrong when logging in' })
-        
+               
 class LogoutView(APIView):
     def post(self, request, format=None):
         try:
