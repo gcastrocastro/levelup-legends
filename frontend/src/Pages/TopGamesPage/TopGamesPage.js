@@ -48,7 +48,7 @@ export default function TopGamesPage() {
             {topGames.map(game => {
                 return <GameCard game={game} key={game.name}/>
             })}
-            {isLoading && <p>Loading...</p>}
+            {isLoading && <h2>Loading...</h2>}
         </div>
     )
 }
