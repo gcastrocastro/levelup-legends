@@ -16,5 +16,27 @@ video {
 }
 
 .game-details{
-    display:flex;
+    display: flex;
+    flex-direction: row;
+    background-color: #360607;
+    color: #fff9f6;
+}
+
+.game-description{
+    width: 50%;
+    padding: 40px 20px 20px 20px;
+    min-height: 68vh;
+    height: auto;
+}
+
+.details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.details ul {
+    list-style-type: none
 }
