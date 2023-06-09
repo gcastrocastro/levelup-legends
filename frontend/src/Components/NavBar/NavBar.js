@@ -4,6 +4,11 @@ import { logout } from '../../actions/auth';
 import { connect } from 'react-redux';
 
 function NavBar({isAuthenticated, logout}) {
+    const handleLogout = (e) => {
+        e.preventDefault();
+        logout();
+    }
+
     return (
         <nav>
             <NavLink to="/"><img src="https://i.imgur.com/2jhQznM.png"/></NavLink>
@@ -11,7 +16,7 @@ function NavBar({isAuthenticated, logout}) {
                 <>
                     <NavLink to="/topgames"> Top Games </NavLink>
                     <NavLink to="/search"> Search </NavLink>
-                    <a onClick={logout} href='/'>Logout</a>
+                    <a onClick={handleLogout} href='#!'>Logout</a>
                 </>
                 :
                 <>
