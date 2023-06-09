@@ -1,3 +1,20 @@
 .detailpage-container{
     margin-left: 15%;
 }
+
+.images {
+    background-color: #360607;
+}
+
+video {
+    width: 50%;
+}
+.detailpage-container h2{
+    background-color: #360607;
+    color: #fff9f6;
+    margin: 0;
+}
+
+.video-details{
+    display:flex;
+}
