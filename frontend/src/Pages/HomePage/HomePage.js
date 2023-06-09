@@ -26,7 +26,7 @@ export default function HomePage() {
                     </div>
             </div>
             <div className='detail-container p-5'>
-                <h1 className='display-3'>Welcome to LevelUp Legends</h1>
+                <h1 className='display-3'>Ready to LevelUp, Legends?</h1>
                 <p className=''>
                 Unleash your gaming potential and ascend to greatness. <br/> Explore our vast library, search for games with ease, including the top games right now. <br/> Join our legendary community, forge friendships, and embark on epic quests together. <br/> LevelUp Legends: Where legends are born and gaming reaches new heights!
                 </p>
