@@ -10,7 +10,6 @@ export default function TopGamesPage() {
     async function fetchTopGames() {
         const response = await fetch(`https://rawg.io/api/games/lists/popular?discover=true&&page_size=20&page=1&key=c542e67aec3a4340908f9de9e86038af`);
         const apiData = await response.json();
-        console.log(apiData.next)
         setTopGames(apiData.results);
         setNextPageURL(apiData.next);
     }

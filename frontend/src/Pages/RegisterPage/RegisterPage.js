@@ -31,7 +31,7 @@ const Register = ({ register, isAuthenticated }) => {
         return <redirect to='/login' />;
 
     return (
-        <div className='container mt-5'>
+        <div style={{height: "100vh", marginRight: '0', backgroundColor: "#fff9f6" }} className='container pt-5'>
             <h1>Register for an Account</h1>
             <p>Create an account to join the LevelUp Legends community!</p>
             <form onSubmit={e => onSubmit(e)}>

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login } from '../../actions/auth';
 import CSRFToken from '../../Components/CSRFToken/CSRFToken';
 
 const Login = ({ login, isAuthenticated }) => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         username: '',
         password: ''
@@ -21,10 +22,10 @@ const Login = ({ login, isAuthenticated }) => {
     };
 
     if (isAuthenticated)
-        return <redirect to='/' />;
+        return navigate('/');
 
     return (
-        <div className='container mt-5'>
+        <div style={{ height: "100vh", marginRight: '0', backgroundColor: "#fff9f6" }} className='container pt-5'>
             <h1>Sign In</h1>
             <p>Sign into your LevelUp Legends account</p>
             <form onSubmit={e => onSubmit(e)}>
