@@ -5,6 +5,10 @@ name = "pypi"
 
 [packages]
 gunicorn = "*"
+django = "*"
+psycopg2-binary = "*"
+djangorestframework = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 
