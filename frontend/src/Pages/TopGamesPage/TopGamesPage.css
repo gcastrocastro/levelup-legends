@@ -8,3 +8,7 @@
     padding: 1rem;
     background-color: #360607;
 }
+
+.topgames-container a {
+    text-decoration: none;
+}
