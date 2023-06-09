@@ -1,7 +1,19 @@
 .game-card {
-    position:relative
+    position:relative;
+    border: 1px solid #fff9f6;
+    background-color: #360607;
+    transition: 1s;
 }
 
+.game-card:hover{
+    transform: scale(1.1);
+}
+
+.game-card video,
 .game-card img {
     width: 100%
+}
+
+.game-card h3 {
+    color: #fff9f6;
 }
