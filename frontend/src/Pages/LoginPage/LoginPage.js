@@ -21,7 +21,7 @@ const Login = ({ login, isAuthenticated }) => {
     };
 
     if (isAuthenticated)
-        return <redirect to='/topgames' />;
+        return <redirect to='/' />;
 
     return (
         <div className='container mt-5'>
