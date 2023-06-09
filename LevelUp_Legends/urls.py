@@ -1,6 +1,5 @@
 from django.contrib import admin
-from django.views.generic import TemplateView
-from django.urls import path, include, re_path
+from django.urls import path, include
 from core.views import front
 
 urlpatterns = [
@@ -8,5 +7,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('core/', include('core.urls')),
-    path('accounts', include('django.contrib.auth.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
