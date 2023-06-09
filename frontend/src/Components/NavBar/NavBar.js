@@ -11,7 +11,7 @@ function NavBar({isAuthenticated, logout}) {
                 <>
                     <NavLink to="/topgames"> Top Games </NavLink>
                     <NavLink to="/search"> Search </NavLink>
-                    <a className='nav-link' onClick={logout} href='/'>Logout</a>
+                    <a onClick={logout} href='/'>Logout</a>
                 </>
                 :
                 <>
