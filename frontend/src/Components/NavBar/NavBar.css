@@ -22,6 +22,10 @@ nav a {
     transition: 1s;
 }
 
+nav h3 {
+    color: #fff9f6;
+}
+
 nav a:hover {
     color: #fff9f6;
     transform: scale(1.1);
