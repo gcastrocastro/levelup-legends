@@ -6,8 +6,7 @@ import { load_user, checkAuthenticated } from '../../actions/auth';
 const Layout = ({ children, checkAuthenticated, load_user }) => {
     useEffect(() => {
         checkAuthenticated();
-        const user = load_user();
-        console.log(user.username)
+        load_user();
     }, []);
 
     return (

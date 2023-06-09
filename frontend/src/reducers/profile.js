@@ -5,7 +5,6 @@ import {
 
 const initialState = {
     username: '',
-    games: []
 };
 
 export default function(state = initialState, action) {
@@ -16,14 +15,12 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 username: payload.username,
-                games: payload.profile.games,
                 id: payload.profile.id,
             }
         case LOAD_USER_PROFILE_FAIL:
             return {
                 ...state,
                 username: '',
-                games: []
             }
         default:
             return state

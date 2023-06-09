@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { register } from '../../actions/auth';
 import CSRFToken from '../../Components/CSRFToken/CSRFToken';
 
 const Register = ({ register, isAuthenticated }) => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         username: '',
         password: '',
@@ -26,9 +27,9 @@ const Register = ({ register, isAuthenticated }) => {
     };
 
     if (isAuthenticated)
-        return <redirect to='/topgames' />;
+        return navigate('/topgames')
     else if (accountCreated)
-        return <redirect to='/login' />;
+        return navigate('/');
 
     return (
         <div style={{height: "100vh", marginRight: '0', backgroundColor: "#fff9f6" }} className='container pt-5'>
