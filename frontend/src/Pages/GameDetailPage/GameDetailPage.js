@@ -9,7 +9,7 @@ export default function GameDetailPage() {
     const game = location.state.game
 
     const getGameById = async () => {
-        const response = await fetch(`https://api.rawg.io/api/games/${game.id}?key=${process.env.API_KEY}`)
+        const response = await fetch(`https://api.rawg.io/api/games/${game.id}?key=dd0a3728ea6403a84545cc73b1ad93b`)
         const data = await response.json()
         console.log('data', data)
         setGameObject(data)
