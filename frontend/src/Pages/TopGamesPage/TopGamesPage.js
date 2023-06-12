@@ -8,7 +8,7 @@ export default function TopGamesPage() {
     const [isLoading, setIsLoading] = useState(false);
 
     async function fetchTopGames() {
-        const response = await fetch(`https://rawg.io/api/games/lists/popular?discover=true&&page_size=20&page=1&key=${process.env.API_KEY}`);
+        const response = await fetch(`${process.env.CORS}https://rawg.io/api/games/lists/popular?discover=true&&page_size=20&page=1&key=${process.env.API_KEY}`);
         const apiData = await response.json();
         setTopGames(apiData.results);
         setNextPageURL(apiData.next);
