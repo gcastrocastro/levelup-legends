@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import './GameCard.css';
 
 export default function GameCard({game}) {
@@ -12,10 +12,6 @@ export default function GameCard({game}) {
   const handleMouseLeave = () => {
     setHovered(false);
   };
-
-  useEffect(() => {
-    console.log(game)
-  }, []);
 
     return (
         <Link 
