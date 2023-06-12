@@ -7,6 +7,7 @@ export default function GameCard({game}) {
 
   const handleMouseEnter = () => {
     setHovered(true);
+    console.log(game)
   };
 
   const handleMouseLeave = () => {
