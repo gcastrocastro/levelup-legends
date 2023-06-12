@@ -9,9 +9,9 @@ LevelUp Legends is a full-stack (React / Django / PostgreSQL) application for vi
 <img src="https://i.imgur.com/2D2V9ph.png" width="700px" alt="game-start-preview"/>
 
 # Technologies Used
-Frontend: React, Redux, js-cookie, axios, slick-carousel, pixelartcss.com
-Backend: Django, custom-built authentication
-Database: PostgresQl
+Frontend: React, Redux, js-cookie, axios, slick-carousel, pixelartcss.com <br>
+Backend: Django, custom-built authentication <br>
+Database: PostgresQl <br>
 API: Rawg.io API (https://rawg.io/apidocs)
 
 # Getting Started
