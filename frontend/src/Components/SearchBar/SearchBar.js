@@ -15,7 +15,7 @@ export default function SearchBar() {
     const onSubmit = async (e) => {
         e.preventDefault()
         let searchName = searchTerm.split(' ').join('-').toLowerCase();
-        const response = await fetch(`https://api.rawg.io/api/games?key=4c542e67aec3a4340908f9de9e86038af&search=${searchName}`);
+        const response = await fetch(`https://rawg.io/api/search?search=${searchName}&page_size=20&page=1&?key=c542e67aec3a4340908f9de9e86038af`);
         const apiData = await response.json();
         setGameResults(apiData.results);
         setNextPageURL(apiData.next);
