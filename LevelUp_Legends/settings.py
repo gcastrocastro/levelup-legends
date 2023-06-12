@@ -80,14 +80,7 @@ WSGI_APPLICATION = 'LevelUp_Legends.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'leveluplegends',
-    }
-}
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgresql-round-22359',
+        'NAME': 'HEROKU_POSTGRESQL_GRAY',
         'USER': 'lzuuzpxvzqvzgh',
         'PASSWORD': '3074af60247843e50d2f9e4a77b68307c9c1c45a9c0678eef76071fbef282720',
         'HOST': 'ec2-34-202-127-5.compute-1.amazonaws.com',
