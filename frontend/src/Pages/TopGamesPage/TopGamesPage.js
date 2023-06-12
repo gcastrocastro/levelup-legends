@@ -8,7 +8,7 @@ export default function TopGamesPage() {
     const [isLoading, setIsLoading] = useState(false);
 
     async function fetchTopGames() {
-        const response = await fetch(`https://cors-anywhere.herokuapp.com/https://rawg.io/api/games/lists/popular?discover=true&&page_size=20&page=1&key=${process.env.API_KEY}`);
+        const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://rawg.io/api/games/lists/popular?discover=true&&page_size=20&page=1&key=4dd0a3728ea6403a84545cc73b1ad93b`)});
         const apiData = await response.json();
         setTopGames(apiData.results);
         setNextPageURL(apiData.next);
